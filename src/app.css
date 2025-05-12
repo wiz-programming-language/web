@@ -1,0 +1,77 @@
+@import './fonts.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+::-webkit-scrollbar-track {
+    @apply bg-dark;
+}
+::-webkit-scrollbar-thumb {
+    @apply bg-light-gray hover:bg-light rounded-md cursor-grab active:cursor-grabbing;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    @apply text-light;
+}
+
+h1, h2, h3, h4, h5, h6{
+    @apply font-chakra;
+}
+
+h1{
+    @apply font-bold !leading-normal;
+}
+
+.button-yellow{
+    @apply bg-secondary px-lg py-xs uppercase text-dark font-bold font-chakra relative hover:opacity-80;
+    /* box-shadow: 0 0 10px 0px #FFD500; */
+    /* box-shadow: 0 0 15px 0px #FFD500; hover */
+    transition: 200ms ease-in-out;
+}
+
+.right-cut::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-left: 6px solid transparent;
+    border-bottom: 6px solid #00080F; /* Same as background color */
+    border-right: 6px solid #00080F; /* Same as background color */
+    z-index: 1;
+}
+
+.right-border-cut{
+    @apply border-l-2 border-solid border-secondary relative overflow-hidden;
+}
+.right-border-cut::after,
+.right-border-cut::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+    z-index: -1;
+}
+.right-border-cut::before{
+    height: 18px;
+    top: 0;
+    @apply border-solid border-secondary;
+    border-width: 2px 2.5px 0px 0px;
+    transform: skew(45deg);
+    transform-origin: right bottom;
+}
+.right-border-cut::after{
+    height: calc(100% - 18px);
+    bottom: 0;
+    @apply border-secondary border-solid;
+    border-width: 0 2px 2px 0;
+}
